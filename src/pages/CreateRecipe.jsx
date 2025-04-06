@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const CreateRecipe = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default CreateRecipe
+export default CreateRecipe;
