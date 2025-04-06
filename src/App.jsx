@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import CreateRecipe from "./pages/CreateRecipe";
+import PageFooter from "./commponents/PageFooter";
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
       </Routes>
+      <PageFooter />
     </>
   );
 }
