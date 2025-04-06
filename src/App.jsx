@@ -11,11 +11,13 @@ function App() {
   return (
     <>
       <Navbar />
+      <div className="p-5 ">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
       </Routes>
+      </div>
       <PageFooter />
     </>
   );
