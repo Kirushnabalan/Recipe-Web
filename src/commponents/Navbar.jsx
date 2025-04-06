@@ -18,7 +18,9 @@ const Navbar = () => {
     <div>
       <nav className="flex items-center justify-between px-6 py-4 shadow-sm bg-white dark:bg-gray-800 text-black dark:text-white">
         <div className="flex items-center space-x-8">
-          <span className="flex items-center space-x-8">Flavour</span>
+          <span className="flex items-center font-bold text-2xl space-x-8">
+            Flavour
+          </span>
           <ul className="flex space-x-6 text-sm font-medium">
             <li>
               <NavLink

@@ -1,11 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contest/AppContext";
+import { Search } from "lucide-react";
 
 const Foods = () => {
   const { recipes } = useContext(AppContext);
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef();
 
   const handleClick = (id) => {
     navigate(`/recipe/${id}`);
@@ -15,22 +18,57 @@ const Foods = () => {
     setSelectedCategory(event.target.value);
   };
 
-  const filteredRecipes =
-    selectedCategory === "All"
-      ? recipes
-      : recipes.filter((recipe) => recipe.category === selectedCategory);
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchTerm(inputRef.current.value.toLowerCase());
+  };
 
-  const uniqueCategories = [
-    "All",
-    ...new Set(recipes.map((recipe) => recipe.category)),
-  ];
+  const filteredRecipes = [];
+  for (let recipe of recipes) {
+    if (
+      (selectedCategory === "All" || recipe.category === selectedCategory) &&
+      recipe.name.toLowerCase().includes(searchTerm)
+    ) {
+      filteredRecipes.push(recipe);
+    }
+  }
+
+  const uniqueCategories = ["All"];
+  for (let recipe of recipes) {
+    if (!uniqueCategories.includes(recipe.category)) {
+      uniqueCategories.push(recipe.category);
+    }
+  }
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold text-center mb-6">Foods</h1>
+      <h1 className="text-5xl font-bold text-center mb-6">Foods</h1>
+      <div>
+        <div className="justify-center items-center">
+          <p className="text-center text-3xl font-bold">
+            Find your favour Recipe here
+          </p>
+        </div>
+        <form
+          className="flex justify-center items-center gap-4 mt-5"
+          onSubmit={handleSearch}
+        >
+          <input
+            type="text"
+            placeholder="Search for a recipe..."
+            ref={inputRef}
+            className="border dark:text-white rounded-lg p-2 w-1/2 placeholder-gray-500 dark:placeholder-gray-400"
+          />
+          <button
+            type="submit"
+            className="rounded-lg p-2 cursor-pointer bg-gray-500"
+          >
+            <Search />
+          </button>
+        </form>
+      </div>
 
-      {/* Category Filter */}
-      <div className="mb-6 text-center">
+      <div className="mb-6 text-center pt-5">
         <label htmlFor="category" className="mr-2 font-semibold">
           Filter by Category:
         </label>
@@ -38,7 +76,7 @@ const Foods = () => {
           id="category"
           value={selectedCategory}
           onChange={handleCategoryChange}
-          className="border border-gray-300 rounded px-4 py-2"
+          className="border bg-white text-black cursor-pointer rounded px-4 py-2"
         >
           {uniqueCategories.map((category) => (
             <option key={category} value={category}>
@@ -72,15 +110,12 @@ const Foods = () => {
             </div>
             <div className="flex justify-between">
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className="bg-gray-500 text-white px-4 py-2 rounded"
                 onClick={() => handleClick(recipe.id)}
               >
                 View Recipe
               </button>
-              <button
-                className="bg-green-500 text-white px-4 py-2 rounded"
-                onClick={() => handleFavorite(recipe)}
-              >
+              <button className="bg-gray-900 text-white px-4 py-2 rounded">
                 Add to Favorite
               </button>
             </div>

@@ -1,5 +1,7 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { ArrowBigDownDashIcon } from "lucide-react";
+
 const Header = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between px-12">
@@ -11,9 +13,7 @@ const Header = () => {
           Find your favorite recipes and share your own!
         </p>
         <div className="flex justify-center mt-5">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
-            Get Started
-          </button>
+          <ArrowBigDownDashIcon className="w-20 h-30 animate-bounce" />
         </div>
       </div>
       <div>
