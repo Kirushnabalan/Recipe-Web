@@ -5,16 +5,51 @@ import { AppContext } from "../contest/AppContext";
 const Foods = () => {
   const { recipes } = useContext(AppContext);
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleClick = (id) => {
     navigate(`/recipe/${id}`);
   };
 
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const filteredRecipes =
+    selectedCategory === "All"
+      ? recipes
+      : recipes.filter((recipe) => recipe.category === selectedCategory);
+
+  const uniqueCategories = [
+    "All",
+    ...new Set(recipes.map((recipe) => recipe.category)),
+  ];
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Foods</h1>
+
+      {/* Category Filter */}
+      <div className="mb-6 text-center">
+        <label htmlFor="category" className="mr-2 font-semibold">
+          Filter by Category:
+        </label>
+        <select
+          id="category"
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+          className="border border-gray-300 rounded px-4 py-2"
+        >
+          {uniqueCategories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {recipes.map((recipe) => (
+        {filteredRecipes.map((recipe) => (
           <div
             key={recipe.id}
             className="bg-white rounded shadow p-4 cursor-pointer"
