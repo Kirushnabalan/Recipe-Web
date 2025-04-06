@@ -11,7 +11,6 @@ const Foods = () => {
         navigate(`/recipe/${id}`);
     };
 
-
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold text-center mb-6">Foods</h1>
@@ -26,7 +25,7 @@ const Foods = () => {
                             src={recipe.image}
                             alt={recipe.title}
                         />
-                        <h2 className="text-lg font-semibold mb-2">{recipe.name}</h2>
+                        <h2 className="text-lg font-semibold text-black mb-2">{recipe.name}</h2>
                         <p className="text-sm text-gray-600 mb-2">
                             Category: {recipe.category}
                         </p>

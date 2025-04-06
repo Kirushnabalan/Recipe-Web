@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import CreateRecipe from "./pages/CreateRecipe";
 import PageFooter from "./commponents/PageFooter";
+import Rescipe from "./commponents/rescipe/[id]/Rescipe";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/create-recipe" element={<CreateRecipe />} />
+        <Route path="/recipe/:id" element={<Rescipe />} />
       </Routes>
       </div>
       <PageFooter />
