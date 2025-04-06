@@ -7,18 +7,17 @@ import CreateRecipe from "./pages/CreateRecipe";
 import PageFooter from "./commponents/PageFooter";
 import Rescipe from "./commponents/rescipe/[id]/Rescipe";
 
-
 function App() {
   return (
     <>
       <Navbar />
       <div className="p-5 ">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/create-recipe" element={<CreateRecipe />} />
-        <Route path="/recipe/:id" element={<Rescipe />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/create-recipe" element={<CreateRecipe />} />
+          <Route path="/recipe/:id" element={<Rescipe />} />
+        </Routes>
       </div>
       <PageFooter />
     </>
