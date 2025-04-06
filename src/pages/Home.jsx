@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../commponents/Header'
 import SearchBar from '../commponents/SearchBar'
+import Foods from '../commponents/Foods'
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
       <Header/>
       <SearchBar/>
+      <Foods/>
     </div>
   )
 }
