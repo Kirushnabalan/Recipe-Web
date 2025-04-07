@@ -6,6 +6,8 @@ import Favorites from "./pages/Favorites";
 import CreateRecipe from "./pages/CreateRecipe";
 import PageFooter from "./commponents/PageFooter";
 import Rescipe from "./commponents/rescipe/[id]/Rescipe";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/recipe/:id" element={<Rescipe />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </div>
       <PageFooter />
