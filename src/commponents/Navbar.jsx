@@ -64,16 +64,20 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 cursor-pointer dark:hover:bg-gray-600"
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
-          <button className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600">
+          <NavLink to='/login'>
+          <button className="px-4 py-2 text-sm font-medium text-white bg-gray-500 rounded hover:bg-gray-600 cursor-pointer">
             Login
           </button>
-          <button className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded border hover:bg-blue-600">
-            Sign up
+          </NavLink>
+          <NavLink to='/register'>
+          <button className="px-4 py-2 text-sm font-medium text-white bg-gray-500 rounded hover:bg-gray-600 cursor-pointer">
+            Register
           </button>
+          </NavLink>
         </div>
       </nav>
     </div>

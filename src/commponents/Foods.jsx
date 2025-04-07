@@ -53,12 +53,13 @@ const Foods = () => {
           className="flex justify-center items-center gap-4 mt-5"
           onSubmit={handleSearch}
         >
-          <input
-            type="text"
-            placeholder="Search for a recipe..."
-            ref={inputRef}
-            className="border dark:text-white rounded-lg p-2 w-1/2 placeholder-gray-500 dark:placeholder-gray-400"
+         <input
+          type="text"
+          placeholder="Search for a recipe..."
+          ref={inputRef}
+          className="border border-gray-300 dark:border-gray-700 rounded-lg p-3 w-full max-w-lg placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2"
           />
+
           <button
             type="submit"
             className="rounded-lg p-2 cursor-pointer bg-gray-500"
