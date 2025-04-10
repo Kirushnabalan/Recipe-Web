@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../commponents/Header";
-import Foods from "../commponents/Foods";
+import Header from "../components/Header";
+import Foods from "../components/Foods";
 
 const Home = () => {
   return (

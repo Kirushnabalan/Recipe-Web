@@ -11,11 +11,11 @@ const Favorites = () => {
   };
 
   if (favorites.length === 0) {
-    return <h2 className="h-screen text-center text-3xl mt-10">No favorites yet 🥲</h2>;
+    return <h2 className="min-h-screen text-center text-3xl mt-10">No favorites yet 🥲</h2>;
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="min-h-screen container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-6">Your Favorites</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {favorites.map((recipe) => (

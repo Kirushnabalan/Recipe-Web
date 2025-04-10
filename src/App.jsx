@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./commponents/Navbar";
+import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import CreateRecipe from "./pages/CreateRecipe";
-import PageFooter from "./commponents/PageFooter";
-import Rescipe from "./commponents/rescipe/[id]/Rescipe";
+import PageFooter from "./components/PageFooter";
+import Rescipe from "./components/rescipe/[id]/Rescipe";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PageNotFound from "./pages/PageNotFound";
