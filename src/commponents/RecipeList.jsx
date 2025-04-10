@@ -6,7 +6,7 @@ const RecipeList = ({ refresh }) => {
   const [editingRecipe, setEditingRecipe] = useState(null);
   const [updatedRecipe, setUpdatedRecipe] = useState({
     name: "",
-    description: "",
+    Recipe: "",
     time: "",
     cuisine: ""
   });
@@ -37,7 +37,7 @@ const RecipeList = ({ refresh }) => {
     setEditingRecipe(recipe);
     setUpdatedRecipe({
       name: recipe.name,
-      description: recipe.description,
+      Recipe: recipe.Recipe,
       time: recipe.time || "",
       cuisine: recipe.cuisine
     });
@@ -55,17 +55,17 @@ const RecipeList = ({ refresh }) => {
     e.preventDefault();
 
     try {
-      await updateRecipe(editingRecipe.id, updatedRecipe); // ✅ FIXED
+      await updateRecipe(editingRecipe.id, updatedRecipe);
 
       setEditingRecipe(null);
       setUpdatedRecipe({
         name: "",
-        description: "",
+        Recipe: "",
         time: "",
         cuisine: ""
       });
 
-      loadRecipes(); // ✅ refresh list
+      loadRecipes(); 
     } catch (error) {
       console.error("Failed to update recipe:", error);
     }
@@ -87,7 +87,7 @@ const RecipeList = ({ refresh }) => {
               <strong>Food Name:</strong> {recipe.name}
             </p>
             <p className="text-sm mb-2">
-              <strong>Recipe:</strong> {recipe.description}
+              <strong>Recipe:</strong> {recipe.Recipe}
             </p>
             <p className="text-sm mb-2">
               <strong>Time:</strong> {recipe.time || "N/A"}
@@ -124,7 +124,7 @@ const RecipeList = ({ refresh }) => {
               <input
                 type="text"
                 id="name"
-                name="name"
+                name="Food Name"
                 value={updatedRecipe.name}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border rounded-lg mt-2"
@@ -133,13 +133,13 @@ const RecipeList = ({ refresh }) => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="description" className="block text-sm font-semibold">
-                Recipe Description
+              <label htmlFor="Recipe" className="block text-sm font-semibold">
+                Recipe 
               </label>
               <textarea
-                id="description"
-                name="description"
-                value={updatedRecipe.description}
+                id="Recipe"
+                name="Recipe"
+                value={updatedRecipe.Recipe}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border rounded-lg mt-2"
                 required
@@ -188,7 +188,7 @@ const RecipeList = ({ refresh }) => {
                   setEditingRecipe(null);
                   setUpdatedRecipe({
                     name: "",
-                    description: "",
+                    Recipe: "",
                     time: "",
                     cuisine: ""
                   });

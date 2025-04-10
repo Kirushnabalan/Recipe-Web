@@ -4,7 +4,7 @@ import { createRecipe, updateRecipe } from "../api/api";
 const RecipeForm = ({ selectedRecipe, clearSelection, reload }) => {
   const [form, setForm] = useState({
     name: "",
-    description: "",
+    Recipe: "",
     time: "",
     cuisine: "",
   });
@@ -29,7 +29,7 @@ const RecipeForm = ({ selectedRecipe, clearSelection, reload }) => {
  
     setForm({
       name: "",
-      description: "", 
+      Recipe: "", 
       time: "",
       cuisine: "",
     });
@@ -44,7 +44,7 @@ const RecipeForm = ({ selectedRecipe, clearSelection, reload }) => {
       
       <input
         name="name"
-        placeholder="Name"
+        placeholder="Food Name"
         value={form.name}
         onChange={handleChange}
         required
@@ -52,9 +52,9 @@ const RecipeForm = ({ selectedRecipe, clearSelection, reload }) => {
       />
       
       <input
-        name="description" 
+        name="Recipe" 
         placeholder="Recipe"
-        value={form.description}
+        value={form.Recipe}
         onChange={handleChange}
         required
         className="w-full p-2 mb-4 border border-gray-300 rounded"
