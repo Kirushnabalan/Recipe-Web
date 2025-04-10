@@ -1,18 +1,3 @@
 {
-  "recipes": [
-    {
-      "id": "41bf",
-      "name": "sad",
-      "description": "sda",
-      "time": "asd",
-      "cuisine": "asd"
-    },
-    {
-      "id": "7ebd",
-      "name": "kirushna",
-      "description": "sdc",
-      "time": "sd",
-      "cuisine": "sdc"
-    }
-  ]
+  "recipes": []
 }
